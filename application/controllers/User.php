@@ -15,8 +15,22 @@ class User extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
-	public function login(){
+	public function login_page(){
+		$this->load->view('login');
+	}
 
+	public function login_user(){
+		$post = $this->input->post(NULL, TRUE);
+
+		$user = $this->user_model->get_user($post);
+
+		if($user !== NULL && $user['password'] === md5($post['password'])){
+			echo 'success';
+		} else {
+			echo 'denied';
+		}
+
+		var_dump($user);
 	}
 
 	public function logout(){

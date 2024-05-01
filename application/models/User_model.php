@@ -16,4 +16,12 @@ class User_model extends CI_Model
 
     }
 
+    public function get_user($data){
+
+        $query = $this->db->get_where('users', array('email' => $data['email']));
+        return $query->row_array();
+
+        var_dump($data);
+    }
+
 }
