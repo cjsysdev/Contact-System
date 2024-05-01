@@ -7,11 +7,20 @@ class Contact extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper(['form','url']);
-		$this->load->model(['user_model']);
+        $this->load->library(['session']);
+		$this->load->model(['user_model', 'contact_model']);
     }
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('header');
+		$this->load->view('contact');
+		$this->load->view('footer');
+
+	}
+
+	public function add_contact(){
+		$post = $this->input->post(NULL, TRUE);
+		$this->contact_model->add_contact($post);
 	}
 }

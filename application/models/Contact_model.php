@@ -9,7 +9,15 @@ class Contact_model extends CI_Model
     }
 
     public function add_contact($data){
+        $userdata = $this->session->userdata();
+
+        $data['userid'] = $userdata['userid'];
+
+        var_dump($data);
         
+        $this->db->insert('contacts', $data);
+
+        echo('success');
 
     }
 
