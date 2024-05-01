@@ -7,4 +7,16 @@ class User extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+	public function login(){
+
+	}
+
+	public function logout(){
+
+	}
+
+	public function register(){
+		$this->load->view('register');
+	}
 }
