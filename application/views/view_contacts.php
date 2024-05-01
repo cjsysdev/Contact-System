@@ -1,3 +1,6 @@
+<a href="<?= base_url('contacts') ?>" type="button" class="btn btn-primary mb-3">Add Contact</a>
+<a href="<?= base_url('logout') ?>" type="button" class="btn btn-secondary mb-3">Logout</a>
+
 <table id="contacts" class="table">
     <thead>
         <tr>

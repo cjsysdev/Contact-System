@@ -40,16 +40,17 @@ class User extends CI_Controller
 			];
 
 			$this->session->set_userdata($user_session);
-			redirect('contact');
+			redirect('diplay_contacts');
 		} else {
-			echo 'denied';
+			redirect();
 		}
 
-		var_dump($user);
 	}
 
 	public function logout()
 	{
+		$this->session->unset_userdata(array('userid', 'name', 'email'));
+		redirect();
 	}
 
 	public function registration_page()
@@ -69,6 +70,7 @@ class User extends CI_Controller
 		if ($post['password'] === $post['confirm_password']) {
 			unset($post['confirm_password']);
 			$this->user_model->add_user($post);
+			redirect('login_page');
 		}
 
 		// redirect('registration_page');

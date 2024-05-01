@@ -10,4 +10,7 @@
     <div class="mb-3 mt-3">
         <button type="submit" class="btn btn-primary mb-3">Submit</button>
     </div>
+    <div class="mb-3 mt-3">
+        <a href="<?= base_url('registration_page') ?>" type="button" class="btn btn-primary mb-3">Register</a>
+    </div>
 </form>
