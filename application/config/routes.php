@@ -53,5 +53,7 @@ $route['default_controller'] = 'user';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['contact'] = 'contact/index';
-$route['add_contact'] = 'contact/add_contact';
+$route['(login_page|logout|login_user|registration_page|register_user)'] = 'user/$1';
+
+$route['(contacts|add_contact|diplay_contacts|user_contacts)'] = 'contact/$1';
+

@@ -8,22 +8,26 @@ class Contact_model extends CI_Model
         $this->load->database();
     }
 
-    public function add_contact($data){
+    public function add_contact($data)
+    {
         $userdata = $this->session->userdata();
 
         $data['userid'] = $userdata['userid'];
-
-        var_dump($data);
-        
         $this->db->insert('contacts', $data);
 
-        echo('success');
-
+        echo ('success');
     }
 
-    public function get_contact($data){
+    public function get_contacts()
+    {
+        $user_session = $this->session->userdata();
 
-    
+        $this->db->select('*')
+            ->from('contacts')
+            ->where('userid', $user_session['userid']);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
     }
-
 }

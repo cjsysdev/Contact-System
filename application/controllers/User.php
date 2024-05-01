@@ -14,12 +14,14 @@ class User extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		redirect('login_page');
 	}
 
 	public function login_page()
 	{
+		$this->load->view('header');
 		$this->load->view('login');
+		$this->load->view('footer');
 	}
 
 	public function login_user()
@@ -52,7 +54,9 @@ class User extends CI_Controller
 
 	public function registration_page()
 	{
+		$this->load->view('header');
 		$this->load->view('register');
+		$this->load->view('footer');
 	}
 
 	public function register_user()
